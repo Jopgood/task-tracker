@@ -1,0 +1,30 @@
+{
+  "name": "task-cli",
+  "version": "1.0.0",
+  "description": "A CLI tool for task tracking",
+  "main": "dist/index.js",
+  "bin": {
+    "task-cli": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node -r tsconfig-paths/register dist/index.js",
+    "dev": "ts-node src/index.ts"
+  },
+  "keywords": [
+    "cli",
+    "task",
+    "tracker"
+  ],
+  "author": "Your Name",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^8.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.12",
+    "ts-node": "^10.4.0",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^4.5.3"
+  }
+}
