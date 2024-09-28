@@ -1,20 +1,21 @@
-import fs from "fs";
-import path from "path";
-import { Task } from "../types/tasks";
-
-const tasksFile = path.join(__dirname, "../../tasks.json");
+import { readTasks } from "./task-helpers";
 
 export function listTasks() {
-  if (!fs.existsSync(tasksFile)) {
-    console.log("No tasks found.");
-    return;
+  try {
+    const tasks = readTasks();
+
+    if (tasks.length === 0) {
+      console.log(
+        "No tasks found. Start by creating a new task with task-cli add <description>"
+      );
+      return;
+    }
+
+    console.log("Tasks:");
+    tasks.forEach((task) => {
+      console.log(`${task.id}. [${task.status}] ${task.description}`);
+    });
+  } catch (error) {
+    console.error(`Error listing tasks: ${error}`);
   }
-
-  const data = fs.readFileSync(tasksFile, "utf8");
-  const tasks: Task[] = JSON.parse(data);
-
-  console.log("Tasks:");
-  tasks.forEach((task) => {
-    console.log(`${task.id}. [${task.status}] ${task.description}`);
-  });
 }

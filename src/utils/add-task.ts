@@ -1,16 +1,8 @@
-import fs from "fs";
-import path from "path";
-import { Task } from "../types/tasks";
-
-const tasksFile = path.join(__dirname, "../../tasks.json");
+import { readTasks, writeTasks } from "./task-helpers";
+import { Task } from "@/types/tasks";
 
 export function addTask(description: string) {
-  let tasks: Task[] = [];
-
-  if (fs.existsSync(tasksFile)) {
-    const data = fs.readFileSync(tasksFile, "utf8");
-    tasks = JSON.parse(data);
-  }
+  const tasks = readTasks();
 
   const newTask: Task = {
     id: tasks.length + 1,
@@ -21,7 +13,7 @@ export function addTask(description: string) {
   };
 
   tasks.push(newTask);
-  fs.writeFileSync(tasksFile, JSON.stringify(tasks, null, 2));
+  writeTasks(tasks);
 
   console.log(`Task added successfully (ID: ${newTask.id})`);
 }
