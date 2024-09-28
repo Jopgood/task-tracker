@@ -1,6 +1,6 @@
 # Task Tracker CLI
 
-Task Tracker CLI is a simple command-line interface tool for managing your to-do list. It allows you to add, update, delete, and list tasks directly from your terminal.
+Task Tracker CLI is a simple command-line interface tool for managing your to-do list. It allows you to add, update, delete, list tasks, and change task statuses directly from your terminal.
 
 ## Features
 
@@ -9,31 +9,24 @@ Task Tracker CLI is a simple command-line interface tool for managing your to-do
 - Delete tasks
 - Mark tasks as in-progress or done
 - List all tasks
-- List tasks by status (todo, in-progress, done)
 
 ## Installation
 
 To install Task Tracker CLI, follow these steps:
 
 1. Clone the repository:
-
    ```
    git clone https://github.com/yourusername/task-tracker-cli.git
    cd task-tracker-cli
    ```
-
 2. Install dependencies:
-
    ```
    npm install
    ```
-
 3. Build the project:
-
    ```
    npm run build
    ```
-
 4. Link the CLI tool globally:
    ```
    npm link
@@ -71,17 +64,8 @@ task-cli mark-done 1
 ### Listing tasks
 
 List all tasks:
-
 ```
 task-cli list
-```
-
-List tasks by status:
-
-```
-task-cli list done
-task-cli list todo
-task-cli list in-progress
 ```
 
 ## Development
