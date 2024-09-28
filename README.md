@@ -9,6 +9,7 @@ Task Tracker CLI is a simple command-line interface tool for managing your to-do
 - Delete tasks
 - Mark tasks as in-progress or done
 - List all tasks
+- Filter tasks by status (todo, in-progress, done)
 
 ## Installation
 
@@ -66,6 +67,13 @@ task-cli mark-done 1
 List all tasks:
 ```
 task-cli list
+```
+
+List tasks by status:
+```
+task-cli list done
+task-cli list todo
+task-cli list in-progress
 ```
 
 ## Development
