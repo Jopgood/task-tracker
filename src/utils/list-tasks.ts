@@ -32,9 +32,20 @@ export function listTasks(status?: string) {
     }
 
     console.log(status ? `Tasks with status '${status}':` : "All tasks:");
-    filteredTasks.forEach((task) => {
-      console.log(`${task.id}. [${task.status}] ${task.description}`);
-    });
+
+    // Prepare data for table output
+    const tableData = filteredTasks.map((task) => ({
+      ID: task.id,
+      Status: task.status,
+      Description: task.description,
+      "Created At": new Date(task.createdAt).toLocaleString(),
+      "Updated At": task.updatedAt
+        ? new Date(task.updatedAt).toLocaleString()
+        : "N/A",
+    }));
+
+    // Print the table
+    console.table(tableData);
   } catch (error) {
     console.error(`Error listing tasks: ${error}`);
   }
