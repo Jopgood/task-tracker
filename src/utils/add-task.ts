@@ -4,8 +4,10 @@ import { Task } from "@/types/tasks";
 export function addTask(description: string) {
   const tasks = readTasks();
 
+  const maxId = Math.max(...tasks.map(task => task.id))
+
   const newTask: Task = {
-    id: tasks.length + 1,
+    id: maxId + 1,
     description,
     status: "todo",
     createdAt: new Date().toISOString(),
